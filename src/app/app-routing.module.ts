@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { BienvenidosComponent } from './page/bienvenidos/bienvenidos.component';
 import { BusquedaspeliculasComponent } from './page/busquedaspeliculas/busquedaspeliculas.component';
 import { AltaActoresComponent } from './page/alta-actores/alta-actores.component';
+import { PeliculaAltaComponent } from './page/pelicula-alta/pelicula-alta.component';
+import { ActorPeliculaComponent } from './page/actor-pelicula/actor-pelicula.component';
 
 const routes: Routes = [
   {
@@ -16,6 +18,14 @@ const routes: Routes = [
   {
     path: 'AltaActores',
     component: AltaActoresComponent
+  },
+  {
+    path:'PeliculaAlta',
+    component:PeliculaAltaComponent
+  },
+  {
+    path:'ActorPelicula',
+    component:ActorPeliculaComponent
   },
   {
     path: '',

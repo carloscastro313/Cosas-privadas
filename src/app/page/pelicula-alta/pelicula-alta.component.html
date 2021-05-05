@@ -3,12 +3,12 @@
         <div class="row g-5">
             <div class="col-md-5 col-lg-4 order-md-last">
                 <h4 class="d-flex justify-content-between align-items-center mb-3">
-                    <span class="text-primary">Lista de paises</span>
+                    <span class="text-primary">Lista de actores</span>
                 </h4>
                 <app-tabla-paises (select)="seleccion($event)"></app-tabla-paises>
             </div>
             <div class="col-md-7 col-lg-8">
-                <h4 class="mb-3">Alta actor</h4>
+                <h4 class="mb-3">Alta pelicula</h4>
                 <form [formGroup]='forma' (ngSubmit)="aceptar()">
                     <div class="row g-3">
                         <div class="col-sm-6">
@@ -18,27 +18,45 @@
                         </div>
 
                         <div class="col-sm-6">
-                            <label class="form-label">Apellido</label>
-                            <input type="text" class="form-control" placeholder="Inserte apellido" formControlName="apellido">
-                            <small class="invalid" *ngIf="forma.get('apellido').invalid && forma.get('apellido').touched">El apellido es requerido</small>
+                            <label class="form-label">Fecha de estreno</label>
+                            <input type="date" class="form-control" placeholder="Inserte fecha de estreno" formControlName="fecha">
+                            <small class="invalid" *ngIf="forma.get('fecha').invalid && forma.get('fecha').touched">La fecha de estreno es requerida</small>
                         </div>
 
                         <div class="col-12">
-                            <label for="email" class="form-label">Correo</label>
-                            <input type="email" class="form-control" id="email" placeholder="contacto@contacto.com" formControlName="correo">
-                            <small class="invalid" *ngIf="forma.get('correo').invalid && forma.get('correo').touched">El contacto es requerido</small>
+                            <label for="descripcion" class="form-label">Descripcion</label>
+                            <input type="text" class="form-control" id="descripcion" placeholder="La historia trata de..." formControlName="descripcion">
+                            <small class="invalid" *ngIf="forma.get('descripcion').invalid && forma.get('descripcion').touched">La descripcion es requerido</small>
+                        </div>
+                        
+                        <div class="col-sm-6">
+                            <label for="firstName" class="form-label">Cantidad de publico</label>
+                            <input type="number" class="form-control" formControlName="publico">
+                            <small class="invalid" *ngIf="forma.get('publico').invalid && forma.get('publico').touched">La cantidad de publico es requerido</small>
                         </div>
 
                         <div class="col-sm-6">
-                            <label for="firstName" class="form-label">Edad</label>
-                            <input type="number" class="form-control" min="1" max="99" formControlName="edad">
-                            <small class="invalid" *ngIf="forma.get('edad').invalid && forma.get('edad').touched">La edad es requerida</small>
+                            <label class="form-label">Tipo</label>
+                            <select class="form-control" formControlName="tipo">
+                                <option value="" selected>Seleccione un tipo</option>
+                                <option value="terror">Terror</option>
+                                <option value="amor">Amor</option>
+                                <option value="accion">Accion</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                            <small class="invalid" *ngIf="forma.get('tipo').invalid && forma.get('tipo').touched">Tipo es requerido</small>
                         </div>
 
                         <div class="col-sm-6">
-                            <label class="form-label">Pais</label>
-                            <input type="text" class="form-control" placeholder="Seleccione un pais" formControlName="pais" disabled>
-                            <small class="invalid" *ngIf="forma.get('pais').invalid && forma.get('pais').touched">El pais es requerido</small>
+                            <label for="firstName" class="form-label">Imagen de portada</label>
+                            <input type="file" class="form-control" formControlName="imagen">
+                            <small class="invalid" *ngIf="forma.get('imagen').invalid && forma.get('imagen').touched">La imagen de portada es requerida</small>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label class="form-label">Actor</label>
+                            <input type="text" class="form-control" placeholder="Seleccione actores" formControlName="pais" disabled>
+                            <small class="invalid" *ngIf="forma.get('actor').invalid && forma.get('actor').touched">Actores es requerido</small>
                         </div>
                     </div>
 

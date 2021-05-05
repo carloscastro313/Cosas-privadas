@@ -13,6 +13,7 @@ import { AngularFireModule } from '@angular/fire';
 import { TablaPaisesComponent } from './componentes/tabla-paises/tabla-paises.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PeliculaAltaComponent } from './page/pelicula-alta/pelicula-alta.component';
+import { ActorPeliculaComponent } from './page/actor-pelicula/actor-pelicula.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { PeliculaAltaComponent } from './page/pelicula-alta/pelicula-alta.compon
     DetallePeliculaComponent,
     AltaActoresComponent,
     TablaPaisesComponent,
-    PeliculaAltaComponent
+    PeliculaAltaComponent,
+    ActorPeliculaComponent
   ],
   imports: [
     BrowserModule,
