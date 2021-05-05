@@ -37,18 +37,15 @@ export class AltaActoresComponent implements OnInit {
       try {
         const list : Array<Actor> = await this.storage.getList<Actor>("Actores");
         console.log(list);
-        list.forEach((l: any)=>{
+        list.forEach((l: Actor)=>{
           if(l.correo === this.forma.get('correo').value)throw "Este email ya esta tomado...";
         });
         await this.storage.setDoc("Actores",this.forma.value);
-        console.log(this.forma.value);
         this.forma.reset();
         window.alert("Encuesta enviada correctamente, gracias por participar!");
       } catch (error) {
         window.alert(error);
       }
-
-
     }
     else{
       window.alert("Por favor, complete correctamente los campos antes de enviar el formulario.");

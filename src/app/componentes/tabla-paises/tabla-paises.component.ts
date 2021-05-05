@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { PaisesService } from '../../services/paises.service';
 
 @Component({
   selector: 'app-tabla-paises',
@@ -10,12 +10,14 @@ export class TablaPaisesComponent implements OnInit {
 
   pais: any;
   @Output() select = new EventEmitter<any>();
-  constructor(private HttpClient: HttpClient) { }
+  constructor(private PaisesService: PaisesService) { }
 
-  ngOnInit(): void {
-    this.HttpClient.get('https://restcountries.eu/rest/v2/all').subscribe((data: []) => {
-      this.pais = data.slice(0,100);
-    })
+  async ngOnInit(): Promise<void> {
+    try {
+      this.pais = await this.PaisesService.getPaises();
+    } catch (error) {
+      console.log(error);
+    }
   }
   seleccion(value: string){
     this.select.emit(value);
