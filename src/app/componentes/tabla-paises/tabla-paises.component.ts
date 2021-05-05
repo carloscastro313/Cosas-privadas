@@ -14,7 +14,7 @@ export class TablaPaisesComponent implements OnInit {
 
   ngOnInit(): void {
     this.HttpClient.get('https://restcountries.eu/rest/v2/all').subscribe((data: []) => {
-      this.pais = data.slice(0,3);
+      this.pais = data.slice(0,100);
     })
   }
   seleccion(value: string){

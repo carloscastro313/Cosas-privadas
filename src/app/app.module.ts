@@ -31,14 +31,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     AngularFireModule.initializeApp(
       {
-        apiKey: "AIzaSyA6H033lx8EkpbOwzpjRH_FGGAa60sXhhE",
-        authDomain: "utn-parcial.firebaseapp.com",
-        databaseURL: "https://utn-parcial.firebaseio.com",
-        projectId: "utn-parcial",
-        storageBucket: "utn-parcial.appspot.com",
-        messagingSenderId: "916622488349",
-        appId: "1:916622488349:web:958d1b1412390324c3a7f4",
-        measurementId: "G-C68SRXG8LZ"
+        apiKey: "AIzaSyBk22tmWg4lhT4R9ZrA9a6qiJ1Cuy_cBzI",
+        authDomain: "flatz-973e4.firebaseapp.com",
+        databaseURL: "https://flatz-973e4.firebaseio.com",
+        projectId: "flatz-973e4",
+        storageBucket: "flatz-973e4.appspot.com",
+        messagingSenderId: "153201490798",
+        appId: "1:153201490798:web:1b567292190cfb627d5f7f",
+        measurementId: "G-JM6N70YSQZ"
       }
     )
   ],
