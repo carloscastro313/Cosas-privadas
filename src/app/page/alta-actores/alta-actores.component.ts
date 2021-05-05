@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { validateEventsArray } from '@angular/fire/firestore';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { StoreService } from 'src/app/services/store.service';
+import { Actor } from '../../class/actor';
 
 @Component({
   selector: 'app-alta-actores',
@@ -11,7 +12,7 @@ import { StoreService } from 'src/app/services/store.service';
 export class AltaActoresComponent implements OnInit {
 
   public forma : FormGroup;
-  
+
   constructor(private fb:FormBuilder,private storage:StoreService) { }
 
   ngOnInit(): void {
@@ -28,15 +29,26 @@ export class AltaActoresComponent implements OnInit {
     // console.log(value);
     this.forma.get('pais').setValue(value);
   }
-  
-  public aceptar():void
+
+  public async aceptar():Promise<void>
   {
     if(this.forma.valid)
     {
-      this.storage.setDoc("Actores",this.forma.value);
-      console.log(this.forma.value);
-      this.forma.reset();
-      window.alert("Encuesta enviada correctamente, gracias por participar!");
+      try {
+        const list : Array<Actor> = await this.storage.getList<Actor>("Actores");
+        console.log(list);
+        list.forEach((l: any)=>{
+          if(l.correo === this.forma.get('correo').value)throw "Este email ya esta tomado...";
+        });
+        await this.storage.setDoc("Actores",this.forma.value);
+        console.log(this.forma.value);
+        this.forma.reset();
+        window.alert("Encuesta enviada correctamente, gracias por participar!");
+      } catch (error) {
+        window.alert(error);
+      }
+
+
     }
     else{
       window.alert("Por favor, complete correctamente los campos antes de enviar el formulario.");
