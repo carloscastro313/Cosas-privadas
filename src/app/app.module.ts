@@ -14,6 +14,9 @@ import { TablaPaisesComponent } from './componentes/tabla-paises/tabla-paises.co
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PeliculaAltaComponent } from './page/pelicula-alta/pelicula-alta.component';
 import { ActorPeliculaComponent } from './page/actor-pelicula/actor-pelicula.component';
+import { TablaActorComponent } from './componentes/tabla-actor/tabla-actor.component';
+import { DetallePaisComponent } from './componentes/detalle-pais/detalle-pais.component';
+import { DetalleActorComponent } from './componentes/detalle-actor/detalle-actor.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { ActorPeliculaComponent } from './page/actor-pelicula/actor-pelicula.com
     AltaActoresComponent,
     TablaPaisesComponent,
     PeliculaAltaComponent,
-    ActorPeliculaComponent
+    ActorPeliculaComponent,
+    TablaActorComponent,
+    DetallePaisComponent,
+    DetalleActorComponent
   ],
   imports: [
     BrowserModule,

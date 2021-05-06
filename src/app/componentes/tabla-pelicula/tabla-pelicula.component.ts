@@ -8,7 +8,8 @@ import { Pelicula } from '../../class/peliculas';
 })
 export class TablaPeliculaComponent implements OnInit {
 
-  @Input() pelicula: [];
+  @Input() pelicula: Array<Pelicula>;
+  @Input() flag: boolean = false;
   @Output() select = new EventEmitter<any>();
 
   constructor() { }

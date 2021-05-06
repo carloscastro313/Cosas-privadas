@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Pelicula } from '../../class/peliculas';
+import { StoreService } from '../../services/store.service';
 
 @Component({
   selector: 'app-busquedaspeliculas',
@@ -10,19 +11,20 @@ import { Pelicula } from '../../class/peliculas';
 export class BusquedaspeliculasComponent implements OnInit {
 
   id : number;
-  peliculas: any;
+  peliculas: Array<Pelicula>;
   peliculaSeleccionada: Pelicula = null;
-  constructor(private http: HttpClient) { }
+  constructor(private StoreService: StoreService) { }
 
   ngOnInit(): void {
-    this.http.get('https://api.themoviedb.org/3/movie/popular?api_key=899555eec473eb4482c9f5d3dcc83934').subscribe((data : any) => {
-      this.peliculas = data.results;
-    })
+    this.StoreService.getDoc<Pelicula>('Peliculas').subscribe(data => this.peliculas = data);
   }
 
-  seleccionPelicula(value){
-    this.http.get(`https://api.themoviedb.org/3/movie/${value}?api_key=899555eec473eb4482c9f5d3dcc83934`).subscribe(({id,genres,original_title,popularity,poster_path,release_date}: any) => {
-      this.peliculaSeleccionada = new Pelicula(id,original_title,genres[0],release_date,popularity,'https://image.tmdb.org/t/p/w500'+poster_path);
-    })
+  async seleccionPelicula(value){
+    try {
+      const list = await this.StoreService.getList<Pelicula>('Peliculas');
+      this.peliculaSeleccionada = list.filter(a => a.id == value)[0];
+    } catch (error) {
+      console.log(error);
+    }
   }
 }

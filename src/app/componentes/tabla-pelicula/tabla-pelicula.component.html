@@ -4,12 +4,12 @@
             {{item.id}}
         </div>
         <div class="col-4">
-            {{item.original_title}}
+            {{item.nombre}}
         </div>
-        <div class="col-4">
-            {{item.release_date}}
+        <div [class]="flag?'col-3':'col-6'">
+            {{item.fecha}}
         </div>
-        <div class="col-3-sm">
+        <div class="col-3-sm" *ngIf="flag">
             <button type="button" class="btn btn-primary" (click)="seleccion(item.id)">Detalle</button>
         </div>
     </div>

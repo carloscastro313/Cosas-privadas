@@ -8,7 +8,7 @@
         <!-- Example row of columns -->
         <div class="row">
             <div class="col-md-8">
-                <app-tabla-pelicula [pelicula]="peliculas" (select)="seleccionPelicula($event)"></app-tabla-pelicula>
+                <app-tabla-pelicula flag="true" [pelicula]="peliculas" (select)="seleccionPelicula($event)"></app-tabla-pelicula>
             </div>
             <div class="col-md-4">
                 <app-detalle-pelicula [(pelicula)]="peliculaSeleccionada"></app-detalle-pelicula>
