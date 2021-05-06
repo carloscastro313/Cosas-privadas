@@ -55,13 +55,11 @@
 
                         <div class="col-sm-6">
                             <label class="form-label">Actor</label>
-                            <input type="text" class="form-control" placeholder="Seleccione actores" formControlName="pais" disabled>
+                            <input type="text" class="form-control" placeholder="Seleccione actores" formControlName="actor" disabled>
                             <small class="invalid" *ngIf="forma.get('actor').invalid && forma.get('actor').touched">Actores es requerido</small>
                         </div>
                     </div>
-
                     <hr class="my-4">
-
                     <button class="w-100 btn btn-primary btn-lg" type="submit">Crear</button>
                 </form>
             </div>
